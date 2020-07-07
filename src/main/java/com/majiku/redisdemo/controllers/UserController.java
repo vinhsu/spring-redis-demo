@@ -29,13 +29,13 @@ public class UserController {
 
     @PostMapping("/add")
     public User add(@RequestBody User user) {
-        userRepository.save(new User(user.getId(), user.getName(), 1590L));
+        userRepository.save(new User(user.getId(), user.getName(), user.getScore()));
         return userRepository.findById(user.getId());
     }
 
     @PutMapping("/update")
     public User update(@RequestBody User user) {
-        userRepository.update(new User(user.getId(), user.getName(), 1590L));
+        userRepository.update(new User(user.getId(), user.getName(), user.getScore()));
         return userRepository.findById(user.getId());
     }
 
